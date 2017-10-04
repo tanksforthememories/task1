@@ -1,6 +1,10 @@
 package uk.ac.bmth.aprog.task01;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Task01 {
@@ -67,22 +71,41 @@ public class Task01 {
     private static void problem3() {
         System.out.println("Problem 3:");
         System.out.println("==========");
-
-        Scanner usrInput = new Scanner(System.in);
-        int[] usrNum = new int[6];
-
         System.out.println("Welcome to Andreas' Lottery!");
-        System.out.println("Please select 6 numbers between 1 and 49 to enter the lottery");
+        System.out.println("Today's five lottery numbers are: ");
+        System.out.println("-------------------------------");
 
-        for (int i = 0; i < usrNum.length; i++) {
-            System.out.print("Select a number: ");
-            usrNum[i] = usrInput.nextInt();
+
+        for (int i = 1; i < 6; i++) {
+
+            int[] lotteryNumbers = new Random().ints(1, 50).distinct().limit(6).toArray();
+            Arrays.sort(lotteryNumbers);
+
+            System.out.println("Lotto draw " + i + " " + Arrays.toString(lotteryNumbers));
+
+
+            /* switch (i) {
+                case 1:
+                    System.out.println("1st Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break;
+                case 2:
+                    System.out.println("2nd Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break;
+                case 3:
+                    System.out.println("3rd Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break;
+                case 4:
+                    System.out.println("4th Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break;
+                case 5:
+                    System.out.println("5th Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break;
+                case 6:
+                    System.out.println("6th Lottery Combination: " + Arrays.toString(lotteryNumbers));
+                    break; */
         }
-        for (int i = 0; i < usrNum.length; i++) {
-            System.out.print(usrNum[i] + " ");
-        }
-        // output should be a list of five lottery numbers, each containing 6 integers
     }
+
 
     /**
      * Write a program to display a rectangular multiplication table.  It should
@@ -138,9 +161,9 @@ public class Task01 {
         System.out.println();
         //problem2();
         System.out.println();
-        problem3();
+        //problem3();
         System.out.println();
-        // problem4();
+        problem4();
         System.out.println();
         //problem5();
         System.out.println();
